@@ -1,0 +1,14 @@
+site_name: Bottlefish's Notebook
+site_url: https://note.bottlefish.cc/
+repo_name: BottleFish326/notes
+repo_url: https://github.com/BottleFish326/notes/
+edit_url: tree/main/docs/
+site_description: Bottlefish's Notebook
+
+theme:
+  name: 'material'
+  language: 'zh'
+
+plugins:
+  - search
+  - awesome-pages
