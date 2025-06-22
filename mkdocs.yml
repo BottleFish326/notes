@@ -2,12 +2,29 @@ site_name: Bottlefish's Notebook
 site_url: https://note.bottlefish.cc/
 repo_name: BottleFish326/notes
 repo_url: https://github.com/BottleFish326/notes/
-edit_url: tree/main/docs/
+edit_uri: tree/main/docs/
 site_description: Bottlefish's Notebook
 
 theme:
   name: 'material'
   language: 'zh'
+  icon:
+    logo: material/notebook-outline
+  custom_dir: overrides
+  features:
+    - content.code.annotate
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.indexes
+    - navigation.top
+  font: false
+  palette:
+    - scheme: default
+
+markdown_extensions:
+  - toc:
+      permalink: true
+      toc_depth: 4
 
 plugins:
   - search
