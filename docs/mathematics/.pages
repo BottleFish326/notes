@@ -1,0 +1,5 @@
+title: Mathematics
+arrange:
+  - index.md
+  - solidAngleEllipse
+collapse_single_pages: true

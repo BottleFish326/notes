@@ -61,6 +61,16 @@ validation:
     not_found: info
     absolute_links: info
     unrecognized_links: info
+
+extra_css:
+  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
+  - css/custom.css
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js
+  - javascripts/katex-render.js
+
 plugins:
   - search
   - awesome-pages
