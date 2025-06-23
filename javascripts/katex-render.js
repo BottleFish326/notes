@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
   ]
   const elements = document.querySelectorAll('.arithmatex');
   elements.forEach(el => {
+    const rawTex = el.textContent.trim();
     const matched = delimiters.find(d => rawTex.startsWith(d.left) && rawTex.endsWith(d.right));
     if (!matched) return;
     const tex = rawTex.slice(matched.left.length, rawTex.length - matched.right.length);
