@@ -1,3 +1,7 @@
+---
+title: Solid Angle of Ellipse
+comments: true
+---
 # Solid Angle of Ellipse
 
 ## 1. Problem Description
