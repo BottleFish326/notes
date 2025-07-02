@@ -3,7 +3,8 @@ title: Solid Angle of Ellipse
 comments: true
 ---
 # Solid Angle of Ellipse
-
+!!! info "Related Papers"
+    **[Analytical solution for the solid angle subtended at any point by an ellipse via a point source radiation vector potential](https://www.sciencedirect.com/science/article/abs/pii/S0168900209022918)**
 ## 1. Problem Description
 
 Calculate the (signed) solid angle for an ellipse from the origin $(0,0,0)$
@@ -30,8 +31,6 @@ double solid_angle_ellipse(
 ```
 
 ## 2. Math Expression Needed
-> **reference paper**: Analytical solution for the solid angle subtended at any point by an ellipse via a point source radiation vector potential
-> https://www.sciencedirect.com/science/article/abs/pii/S0168900209022918
 
 ### 2.1 Problem Simplify
 
