@@ -80,7 +80,9 @@ $$
 (\delta_0, \phi) = \phi(0)
 $$
 
-Below, we will prove this claim. For now, though, assume we can prove this. That is, assume we can find constants $c_1$,$c_2$ such that $u$ defined in (3.1) satisfied
+> this prove is a little complex. You can reference to this handouts: **[Stanford course Math 220B laplac.pdf](https://web.stanford.edu/class/math220b/handouts/laplace.pdf)**
+
+For now, though, assume we can prove this. That is, assume we can find constants $c_1$,$c_2$ such that $u$ defined in (3.1) satisfied
 
 $$
 - \Delta_x u = \delta_0
@@ -93,7 +95,7 @@ $$
 v(x) = \int_{\mathbb{R}^n} \Phi(x - y) f(y) \, dy
 $$
 
-*Formally*, we compute the Laplacian of *v* as follows,
+$Formally$, we compute the Laplacian of $v$ as follows,
 
 $$
 \begin{aligned}
@@ -103,7 +105,7 @@ $$
 \end{aligned}
 $$
 
-That is, *v* is a solution of Poisson's equation! Of course, this set of equalities above is entirely formal. We have not prove anything yet. However, we have motivated a solution formula for Poisson's equation from a solution to (3.2). We now return to using the radial solution (3.1) to find a solution of (3.2).
+That is, $v$ is a solution of Poisson's equation! Of course, this set of equalities above is entirely formal. We have not prove anything yet. However, we have motivated a solution formula for Poisson's equation from a solution to (3.2). We now return to using the radial solution (3.1) to find a solution of (3.2).
 
 Define the function $\Phi$ as follows. For $|x| \neq 0$, let
 
@@ -117,3 +119,11 @@ $$
 $$
 
 where $\alpha (n)$ is the volume of the unit ball in $\mathbb{R}^n$. We see that $\Phi$ satisfies Laplace's equation on $\mathbb{R}^n-{0}$. As we will show in the following claim, $\Phi$ satisfies $-\Delta_x \Phi = \delta_0$. For this reason, we call $\Phi$ the **fundamental solution** of Laplace's equation.
+
+## 3. Solving Poisson's Equation
+
+We now return to solving Poisson's Equation.
+
+$$
+- \Delta u = f, \quad x \in \mathbb{R}^n
+$$
