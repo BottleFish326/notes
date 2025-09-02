@@ -1,15 +1,16 @@
 site_name: Bottlefish's Notebook
 site_url: https://note.bottlefish.cn/
-repo_name: BottleFish326/notes
+repo_name: BottleFish's Notes
 repo_url: https://github.com/BottleFish326/notes/
-edit_uri: tree/main/docs/
+edit_uri: edit/main/docs/
 site_description: Bottlefish's Notebook
 
 theme:
   name: 'material'
-  language: 'zh'
+  language: 'en'
   icon:
     logo: material/notebook-outline
+    repo: fontawesome/brands/github
     admonition:
       note: octicons/tag-16
       abstract: octicons/checklist-16
@@ -23,48 +24,85 @@ theme:
       bug: octicons/bug-16
       example: octicons/beaker-16
       quote: octicons/quote-16
+    annotation: material/chevron-right-circle
   custom_dir: overrides
   features:
     - content.code.annotate
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
     - navigation.tracking
     - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.path
+    - navigation.prune
     - navigation.indexes
+    - toc.follow
     - navigation.top
+    - content.code.copy
+    - content.code.select
+    - content.tabs.link
+    - search.suggest
+    - search.highlight
+    - search.share
+    - header.autohide
+    - navigation.footer
+    - content.footnote.tooltips
   font: false
   palette:
-    - scheme: default
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to system preference
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
 
 markdown_extensions:
-  - toc:
-      permalink: true
-      toc_depth: 2
-  - meta
-  - def_list
-  - attr_list
-  - md_in_html
-  - sane_lists
-  - admonition
-  - pymdownx.keys
+  - pymdownx.betterem
+  - pymdownx.blocks.caption
+  - pymdownx.caret
   - pymdownx.mark
   - pymdownx.tilde
   - pymdownx.critic
   - pymdownx.details
-  - pymdownx.snippets
-  - pymdownx.magiclink
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
   - pymdownx.superfences
   - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - pymdownx.tabbed:
-      alternate_style: true 
   - pymdownx.tasklist:
       custom_checkbox: true
-  - pymdownx.highlight:
-      anchor_linenums: true
   - pymdownx.arithmatex:
       generic: true
+  - attr_list
+  - md_in_html
   - admonition
+  - tables
+  - footnotes
+  - def_list
+  - toc:
+      permalink: true
+      title: On this page
+      toc_depth: 3
+
 
 validation:
   nav:
@@ -72,9 +110,14 @@ validation:
     not_found: warn
     absolute_links: info
   links:
-    not_found: info
+    not_found: warn
     absolute_links: info
-    unrecognized_links: info
+    unrecognized_links: warn
+
+extra:
+  social:
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:zpyu@zju.edu.cn
 
 extra_css:
   - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
@@ -84,9 +127,14 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js
   - https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js
   - javascripts/katex-render.js
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - javascripts/tablesort.js
 
 plugins:
-  - search
+  - search:
+      lang:
+        - en
+        - zh
   - awesome-pages
   - glightbox:
       width: 80%

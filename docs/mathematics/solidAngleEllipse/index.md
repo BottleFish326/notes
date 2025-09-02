@@ -3,7 +3,7 @@ title: Solid Angle of Ellipse
 comments: true
 ---
 # Solid Angle of Ellipse
-!!! info "Related Papers"
+!!! quote "Related Papers"
     **[Analytical solution for the solid angle subtended at any point by an ellipse via a point source radiation vector potential](https://www.sciencedirect.com/science/article/abs/pii/S0168900209022918)**
 ## 1. Problem Description
 
@@ -40,7 +40,7 @@ So, in the following expression, we assume that $\boldsymbol{n} = (0,0,1)$ and $
 
 Also, we assume that $\boldsymbol{c} = (p,q,h)$
 
-### 2.2 Special case where $\textbf{c} = (0,0,h)$
+### 2.2 Analytical solution for the coaxial case
 It's easy to calculate the solid angle using the eletric field. As we suppose a point charge is placed at the origin, and the soliet angle problem can be transformed into a calculation of the electric flux.
 
 So the answer is
@@ -66,7 +66,7 @@ $$
 $$
 
 where $k' \equiv \sqrt{1-k^2}$
-### 2.3 Special case where $\textbf{c} = (p,0,h)$
+### 2.3 Analytical case related to sections of a right circular cone
 We can apply a coordiante transformation such that, in the transformerd frame, the $z'$-axis is aligned with the direction from the ellipse center to the observation point, and the $x'$ axis is aligned with the ellipse's major axis.
 
 After this transformation, the resulting elliptical cone can be characterized by its new effective semi-axes, which can then be used to compute the solid angle.
@@ -88,14 +88,17 @@ $$
 and then, we can apply the conclusion of **Chapter 2.2** to calculate the answer, but here's the point, in this occasion, we're not sure that if $a > b$ or $a < b$, so, we should first swap $a$ and $b$ if $a < b$ before apply the conclusion.
 ### 2.4 General Solution
 #### 2.4.1 Rotation of the coordiante system
+
 ![rotation](/assets/images/mathematics/solidAngleEllipse/elliptic_cone.png)
+
 In the $(x,y,z)$ coordinate system, the sheared core obeys the equation
-\[
+
+$$
     \left(\frac{x}{a} - \frac{pz}{ah}\right)^2 +
     \left(\frac{y}{b} - \frac{qz}{bh}\right)^2 -
     \left(\frac{z}{h}\right) = 0
     \tag{117}
-\]
+$$
 
 we need to rotate the coordinate system $(x,y,z)$ to $(x',y',z')$ where the $z'$ axis lies along the center line of the right elliptic cone.
 
@@ -251,14 +254,16 @@ $$
 The horizontal axis repersents the number of triangles used to divide the ellipse in the numerical intergration, while the vertical axis shows the average time required to compute the solid angle. The orange curve correspoinds to the numerical-integration approach, whereas the red dashed line denotes the analytical formula($1.9123\mu s$).
 
 ### 3.2 computational error
+
 ![err](/assets/images/mathematics/solidAngleEllipse/error_vs_n.png)
+
 **The error was determined by comparing our results with those reported in the paper, which are accurate to 20 significant digits**
 The horizontal axis repersents the number of triangles used to divide the ellipse in the numerical intergration, while the vertical axis shows the average error in the calculated solid angle. The orange curve correspoinds to the numerical-integration approach, whereas the red dahed line denotes the analytical formula($9.20974e-15$).
 
 **summery table**
 
 | N    | Time (μs)  | Error              |
-|------|------------|--------------------|
+|:------|:------------|:--------------------|
 | 1    | 0.0798565  | 8.52715e-01        |
 | 2    | 0.101816   | 6.97061e-01        |
 | 4    | 0.144651   | 4.03314e-01        |
@@ -279,7 +284,7 @@ The horizontal axis repersents the number of triangles used to divide the ellips
 if we disable the elliptic integral promotion to long double, we can get the table following
 
 | n    | Time (μs)  | Error              |
-|------|------------|--------------------|
+|:------|:------------|:--------------------|
 | 1    | 0.0564791  | 8.22507e-01        |
 | 2    | 0.0774804  | 1.13996e+00        |
 | 4    | 0.126105   | 3.63865e-01        |
