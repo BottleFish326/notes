@@ -121,7 +121,6 @@ extra:
 
 extra_css:
   - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
-  - css/custom.css
 
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js
