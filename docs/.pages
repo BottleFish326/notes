@@ -2,4 +2,5 @@ arrange:
   - index.md
   - mathematics
   - boolean
-collapse_single_pages: true
+  - AI
+collapse: true

@@ -89,7 +89,7 @@ and then, we can apply the conclusion of **Chapter 2.2** to calculate the answer
 ### 2.4 General Solution
 #### 2.4.1 Rotation of the coordiante system
 
-![rotation](/assets/images/mathematics/solidAngleEllipse/elliptic_cone.png)
+![rotation](./images/elliptic_cone.png)
 
 In the $(x,y,z)$ coordinate system, the sheared core obeys the equation
 
@@ -249,13 +249,13 @@ $$
 
 ### 3.1 time Complexity
 
-![time](/assets/images/mathematics/solidAngleEllipse/runtime_vs_n.png)
+![time](./images/runtime_vs_n.png)
 
 The horizontal axis repersents the number of triangles used to divide the ellipse in the numerical intergration, while the vertical axis shows the average time required to compute the solid angle. The orange curve correspoinds to the numerical-integration approach, whereas the red dashed line denotes the analytical formula($1.9123\mu s$).
 
 ### 3.2 computational error
 
-![err](/assets/images/mathematics/solidAngleEllipse/error_vs_n.png)
+![err](./images/error_vs_n.png)
 
 **The error was determined by comparing our results with those reported in the paper, which are accurate to 20 significant digits**
 The horizontal axis repersents the number of triangles used to divide the ellipse in the numerical intergration, while the vertical axis shows the average error in the calculated solid angle. The orange curve correspoinds to the numerical-integration approach, whereas the red dahed line denotes the analytical formula($9.20974e-15$).

@@ -1,5 +1,5 @@
 ---
-title: Poisson's Equation
+title: "Poisson's Equation"
 comments: true
 ---
 # Poisson's Equation

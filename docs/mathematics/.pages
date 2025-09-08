@@ -3,4 +3,4 @@ arrange:
   - index.md
   - solidAngleEllipse
   - poissonEquation
-collapse_single_pages: true
+collapse: true

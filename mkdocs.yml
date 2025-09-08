@@ -135,6 +135,8 @@ plugins:
       lang:
         - en
         - zh
+  - minify:
+      minify_html: true
   - awesome-pages
   - glightbox:
       width: 80%
