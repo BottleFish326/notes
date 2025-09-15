@@ -1,4 +1,5 @@
 title: Boolean
 arrange:
     - index.md
+    - interactiveMeshBoolean
 collapse: true
