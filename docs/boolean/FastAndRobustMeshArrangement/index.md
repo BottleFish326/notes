@@ -56,3 +56,11 @@ A very basic geometric test: the computation of the relative position, on a plan
 
 Even though our points are embedded in $\mathbb{R}^3$, determining the orientation of a point with respect to a given line is intrinsically two-dimensional and requires expressing the point coordinates in a 2D frame. The rotatioin would require applying a rotation matrix which may introduce round-off errors. Absolute precision requires to drop a coordinate and therefore do not introduce imprecision in the other two coordinates.
 
+Let $t$ have vertices $v_i$, $v_j$, $v_k$, we consider the normal vector $\vec{n} = (v_j - v_i) \times (v_k-v_i)$. When calculating the orientation of three points on $t$, we just drop the coordinate associated to the biggest component between $|\vec{n_x}|$, $|\vec{n_y}|$, and $|\vec{n_z}|$. This guarantees that the triangle will not become degenerate under the orthogonal projection we defined.
+
+We implemented a semi-static filter to make sure that $n_i$ is far enough from zero. This filter is $\epsilon_n=8.88395 10^{-16}\delta^2$, where $\delta$ is the maximum magnitude among the nine coordinates of $v_i$, $v_j$ and $v_k$. If $n_i$ is larger than $\epsilon_n$, we can safely use it to proceed. Otherwise, we recalculate it exactly using expansion arithmetic.
+
+### 3.3 The rest
+
+The remaining computations, whether the points are explicit or implicit, proceed identically. First, use the input point to represent implicit points and perturbation. Compair it with the filter, if it can not pass, recalculate it exactly using expansion arithmetic.
+

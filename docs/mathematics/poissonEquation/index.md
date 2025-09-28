@@ -189,10 +189,10 @@ on any compact set $K$.
         \frac{u(x+he_i)-u(x)}{h} = \int_{\mathbb{R}^n}\Phi(y)\left[\frac{f(x+he_i-y)-f(x-y)}{h}\right]\,dy
         $$
 
-        Now $f\inC^2$ implies
+        Now $f\in C^2$ implies
 
         $$
-        \frac{f(x+he_i-y)-f(x-y)}{h} \rightarrow \frac{\partial f}{\partial x_i}(x-y) as h \rightarrow 0
+        \frac{f(x+he_i-y)-f(x-y)}{h} \rightarrow \frac{\partial f}{\partial x_i}(x-y) \quad \text{as} \quad h \rightarrow 0
         $$
 
         uniformly on $\mathbb{R}^n$. Therefore,

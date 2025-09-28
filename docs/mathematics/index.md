@@ -1,3 +1,3 @@
 # Mathematics
 
-Here's the section about **math**, where all the math knowledge needed located.
+这里记录了所有我所使用和阅读过的大部分数学工具相关的论文和方法。

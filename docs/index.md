@@ -1,5 +1,7 @@
-## Hello, this is index.md
+---
+hide:
+    - navigation
+title: Notebook    
+---
 
-$p(x|y) = \frac{p(y|x)p(x)}{p(y)}$, hello
-
-\(p(x|y) = \frac{p(y|x)p(x)}{p(y)}\).
+这是 BottleFish 的笔记本。主要记录了作者关于AI、CAD等论文的阅读笔记。
