@@ -1,6 +1,6 @@
 title: Mathematics
 arrange:
   - index.md
-  - solidAngleEllipse
-  - poissonEquation
+  - solid-angle-ellipse
+  - poisson-equation
 collapse: true

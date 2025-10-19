@@ -1,5 +1,7 @@
 title: Boolean
 arrange:
     - index.md
-    - interactiveMeshBoolean
+    - interactive-mesh-boolean
+    - adaptive-grid-generation
+    - solid-mesh-arrangement
 collapse: true

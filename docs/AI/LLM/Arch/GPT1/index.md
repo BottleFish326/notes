@@ -9,6 +9,7 @@ comments: true
     [Improving Language Understanding by Generative Pre-Training](https://www.mikecaptain.com/resources/pdf/GPT-1.pdf)
 
     **Author**: OpenAI
+    
     **Date**: 2018
 
 ## 1 Framework

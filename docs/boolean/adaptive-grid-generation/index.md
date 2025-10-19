@@ -82,6 +82,31 @@ A example of such $\tilde{f}$ is the *Bezier simplex*, where the control points 
     ![controlpoints](./figures/controlPoints.png){width="60%", loading=lazy}
 </figure>
 
+!!! note "Cubic Bezier Simplex"
+    The control points $p_1,...,p_l$ in an $n$-dimensional cubic Bezier simplex $t$ include the vertices, edge trisectors, and face centroids of $t$. The barycentric coordinates(w.r.t. to the $n+1$ vertices of $t$) at each control points $p_i$ thus have the form $\{\lambda_1^i,...,\lambda_{n+1}^i\}/3$, where each $\lambda_j^i\in \{0,1,2,3\}$ and $\sum_{j=1}^{n+1}\lambda_j^i=3$. The Bernstein polynomials $w_i(x)(i=1,...,l)$ for any $x\in t$ has the form:
+
+    $$
+    w_i(x)=\frac{3!}{\lambda_1^i!\,\cdots\,\lambda_{n+1}^i!}\beta_1(x)^{\lambda_1^i}\,\cdots\,\beta_{n+1}(x)^{\lambda_{n+1}^i}
+    $$
+
+    where $\beta_j(x)$ is the $j$-th barycentric coordinate of $x$.
+
+    We obtain the control values $b^1,...,b^l$ following the "nine parameter interpolant" method. Specifically, let $f(q)$ and $\nabla f(q)$ be the value and gradient at a vertex $q$,
+
+    - If $p_i$ is a vertex of $t$ then $b^i=f(p_i)$.
+    - If $p_i$ is a trisector of edge $\bar{p_jp_k}$ and closer to $p_j$, then
+
+        $$
+        b^i=b^j+\frac{1}{3}\nabla f(p_j)\cdot (p_k-p_j)
+        $$
+    
+    - If $p_i$ is the centroid of a triangle with vertices $V$ and edge trisectors $E$, then
+
+        $$
+        b^i=\frac{1}{4}\sum_{p_j\in E}b^j-\frac{1}{6}\sum_{p_j\in V}b^j
+        $$
+    
+    Note that the control values $b^i$ at the triangle centroids do not affect the interpolation of the given values and gradients. The choices made above have the property that the resulting interpolant reproduces all polynomial $f$ up to quadratics.
 ### 3.2 Zero-crossing test
 
 We now examine the refinement criteria on a proxy function $\tilde{f}$. The value $\tilde{f}(x)$ at any point $x \in t$ lies in the $m$-dimensional convex hull of $b$. As a result, if there exists some points $x$ such that $\tilde{f}(x)=0$, then $0$ lies in this convex hull. So a necessary condition to pass the zero-crossing test is
