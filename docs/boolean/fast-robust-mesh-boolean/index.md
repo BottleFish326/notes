@@ -60,7 +60,38 @@ Let $t$ have vertices $v_i$, $v_j$, $v_k$, we consider the normal vector $\vec{n
 
 We implemented a semi-static filter to make sure that $n_i$ is far enough from zero. This filter is $\epsilon_n=8.88395 10^{-16}\delta^2$, where $\delta$ is the maximum magnitude among the nine coordinates of $v_i$, $v_j$ and $v_k$. If $n_i$ is larger than $\epsilon_n$, we can safely use it to proceed. Otherwise, we recalculate it exactly using expansion arithmetic.
 
-### 3.3 The rest
+### 3.3 Point Sorting and others
+
+Given an edge $e(v_a,v_b)$, and the list of vertices that partition it in sub-segments $V(e)=\{v_0,v_1,...,v_n\}$, if $V$ is sorted such that $v_a < v_0 < v_1 < ... < v_n < v_b$, then the spliting process is much simpler and efficient.
 
 The remaining computations, whether the points are explicit or implicit, proceed identically. First, use the input point to represent implicit points and perturbation. Compair it with the filter, if it can not pass, recalculate it exactly using expansion arithmetic.
 
+## 4 Mesh Arrangement
+
+<figure markdown="span">
+    ![pipeline](./figures/pipeline.png){width="70%", loading=lazy}
+</figure>
+
+### 4.1 Intersections: localization and assessment
+
+The goal of the algorithm's first step is to detect, for each non-degenerate triangle $t\in T$, the list of triangles intersecting it, and generate the corresponding list of intersection points and segments.
+
+A triangle could potentially intersect all the other elements of $T$. Therefore, in the worst-case scenario the detection of intersections has quadratic complexity. (e.g., when converting a smooth CAD model to a piece wise linear mesh) the automatic tessellation can contain long and skinny triangles traversing a large number of mesh elements. This pathological cases could be very close to the worst-case scenario, and contain serveral millions of intersections.
+
+### 4.2 Adding intersection points
+
+Given a triangle $t \in T$ and an intersection point $p$ strictly contained in it, we refine $t$ by creating three sub-traingles formed by connecting each of its vertices with $p$. We iteratively split triangles containing multiple intersection points until all such points are embedded in the simplicial complex.
+
+!!! note
+    To perform the point in triangle test we must use the orientation predicates, and to perform intersection on an edge $e$, we need to sort intersection points from one endpoint of $e$ to the other. All these method is denoted before.
+
+## 5 Conversion to explicit coordinates
+
+The coordinates of intersection points must be converted from implicit to explicit form to make our results available for downstream applications. Performing this operation in floating-point while ensuring that there is no introduction of new degenerate elements or intersections is an extremely tricky problem.
+
+In practice, current implementations(including this paper) use exact predicates to generate the combinatorial structure of the mesh and naively compute intersection points by solving small linear system in double precision, finding the floating-point numbers that are cloest to the precise intersection coordinates.
+
+!!! note
+    On these paper's benchmark dataset with more than 4k models, naively snapping coordinates to double-precision leads to valid simplicial complexes in $85.2\%$ of the cases.
+
+    We cast the so generated coordinats from double to single precision, and then run our algorithm again, resolving the newly generated intersections. We applied this heuristic in all the cases where the naive rounding failed, and we managed to fix $96\%$ of the models. If iterated, this heuristic shows success in $99.95\%$ of the cases.
